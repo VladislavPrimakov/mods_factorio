@@ -1,0 +1,180 @@
+Version: 1.0.46
+Date: 09. 10. 2024
+  Changes:
+  - Set mod se-cme-combinator as optional.
+  - Set mod space-spidertron as optional. 
+  - Set mod spidertron-dock as optional. 
+---------------------------------------------------------------------------------------------------
+Version: 1.0.45
+Date: 07. 08. 2024
+  Changes:
+  - Fixed error removed items with transport drones mod. 
+---------------------------------------------------------------------------------------------------
+Version: 1.0.44
+Date: 06. 08. 2024
+  Changes:
+  - Fixed disabled recipe of module core and module frame.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.43
+Date: 28. 07. 2024
+  Changes:
+  - Added straight, junction, eblow steel and brass pipes if install mod Flow Control.
+  - Fixed brass pipe recipe. Before it produced 1 pipe, now 5 pipes.
+  - Increased distance of undeground brass pipe from 60 to 64.
+  - Impoved item ordering.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.42
+Date: 19. 07. 2024
+  Changes:
+  - Balanced core fragment processing recipe.
+  - Fixed errors with removing entities.
+  - Removed pollution module because it useless.
+  - Removed rocket tech card from 248k elements.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.41
+Date: 04. 07. 2024
+  Changes:
+  - Removed 248k black/white holes.
+  - Improved restack and item ordering.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.40
+Date: 01. 07. 2024
+  Changes:
+  - Removed 248k star engine.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.39
+Date: 28. 06. 2024
+  Changes:
+  - Removed 248k modules.
+  - Removed KIX2 techology.
+  - Improved item ordering.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.38
+Date: 31. 05. 2024
+  Changes:
+  - Improved regroup and restack.
+  - Added advanced centrifuge mod.
+  - More expensive rocket fluid recipes.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.37
+Date: 02. 04. 2024
+  Changes:
+  - Fixed techologies artillery turret damage bonus. Previously, the damage bonus was for light artillery.
+  - Moved equipment from the Rampant Arsenal to a later stage of the game for balance.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.36
+Date: 19. 03. 2024
+  Changes:
+  - Improved item ordering.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.35
+Date: 12. 03. 2024
+  Changes:
+  - Changed recipe "Scrap recyrling". Now 10 scrap = 1 Material testing pack.
+  - Improved item ordering.
+  - Rebalanced armor equipment. Added nuclear pods from 248k to nuclear generator.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.34
+Date: 20. 02. 2024
+  Changes:
+  - Decreased stack size 248k mod science packs and data.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.33
+Date: 20. 02. 2024
+  Changes:
+  - Rebalance some recipes. Improve regroup. Added conversion of dirty water from k2 mode to 248k and vice versa.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.32
+Date: 21. 11. 2023
+  Changes:
+  - Better rebalance locomotives, cars, wagons.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.26
+Date: 21. 11. 2023
+  Changes:
+  - Rebalance locomotives, cars, wagons.
+  - Remove possible to change stack size core ores and ingots.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.24
+Date: 18. 11. 2023
+  Changes:
+  - Set rampant as optional. Rebalance wagons/fluid-wagons sizes.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.23
+Date: 13. 11. 2023
+  Changes:
+  - Removed the ability to change stack sizes for resources from SE as this changed the balance of the game. However, it is still possible to change the stack sizes for resources from Navius.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.20
+Date: 08. 11. 2023
+  Changes:
+  - More expansive recipes rails, walls, road.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.18
+Date: 06. 11. 2023
+  Changes:
+  - Add support wide chest logistic. Move some mods to my QOL modpack.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.14
+Date: 31. 10. 2023
+  Changes:
+  - Replaced mod evolution from causes-evolution to rampant evolution. Change seetings of evolution from only techologies.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.14
+Date: 18. 10. 2023
+  Changes:
+  - Moved tech for append count of beacons of 248k mod to early game because recipes too much.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.13
+Date: 12. 10. 2023
+  Changes:
+  - Added modules to bz_foundry assembling.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.12
+Date: 10. 10. 2023
+  Changes:
+  - Fixed pipes to 248k assembling machines.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.11
+Date: 10. 10. 2023
+  Changes:
+  - Fixed dependencies for qol modpack.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.10
+Date: 10. 10. 2023
+  Changes:
+  - Added pipes to 248k assembling machines for allow recipes with fluid.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+Date: 08. 10. 2023
+  Changes:
+  - Changed restack and regroup functions for optimization.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+Date: 29. 09. 2023
+  Changes:
+  - Added Arachnids mod.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.6
+Date: 25. 09. 2023
+  Changes:
+  - Added More Repair Packs mod.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 24. 09. 2023
+  Changes:
+  - Compability update with mod Rampant Arsenal
+  - Micro fixes.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 10. 09. 2023
+  Changes:
+  - Changed tab groups.
+  - Micro fixes.
+  - Added own restack with settings
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 23. 08. 2023
+  Changes:
+  - Created mod
+---------------------------------------------------------------------------------------------------
