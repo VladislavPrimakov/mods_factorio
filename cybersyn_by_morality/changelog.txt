@@ -1,0 +1,40 @@
+---------------------------------------------------------------------------------------------------
+Version: 2.1.0
+Date: 2026-05-08
+  Changes:
+    - Supports Factorio 2.1
+    - Set cybersyn2 as required dependency.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.4
+Date: 10. 08. 2025
+  Changes:
+  - Set cybersyn as optional to work with cybersyn2.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.3
+Date: 24. 05. 2024
+  Changes:
+  - Removed opporunity to change crane's speed.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.2
+Date: 12. 12. 2024
+  Changes:
+  - Updated some default mod settings.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 16. 11. 2024
+  Changes:
+  - Added setting to change cranes multiplier speed (by default = 4).
+---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 09. 11. 2024
+  Changes:
+  - Updated to 2.0.
+  - Removed nco-LongStorageTanks (new fluid system).
+  - Removed cranes configurations mods (deprecated).
+  - Added setting to change pump speed (by default = 12000, as it was in 1.1).
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 25. 08. 2024
+  Changes:
+  - Created mod.
+---------------------------------------------------------------------------------------------------

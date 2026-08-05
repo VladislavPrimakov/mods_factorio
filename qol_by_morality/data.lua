@@ -1,0 +1,25 @@
+local function changeShorcutOrder(shortcutName, order)
+    if data.raw["shortcut"][shortcutName] and order then
+        data.raw["shortcut"][shortcutName].order = tostring(order)
+    end
+end
+
+changeShorcutOrder("cybersyn-toggle-gui", "01")
+changeShorcutOrder("give-red-wire", "02")
+changeShorcutOrder("give-green-wire", "03")
+changeShorcutOrder("give-copper-wire", "04")
+changeShorcutOrder("WideChests_merge-chest-selector", "05")
+changeShorcutOrder("mining-patch-planner-shortcut", "06")
+changeShorcutOrder("pump-shortcut", "07")
+changeShorcutOrder("yarm-selector", "08")
+changeShorcutOrder("rcalc-get-selection-tool", "09")
+changeShorcutOrder("tms-toggle", "10")
+changeShorcutOrder("ghost-counter-shortcut", "11")
+changeShorcutOrder("toggle-module-inserter-ex", "12")
+changeShorcutOrder("get-module-inserter-ex", "13")
+changeShorcutOrder("milestones_toggle_gui", "14")
+changeShorcutOrder("import-string", "15")
+changeShorcutOrder("tree-killer", "16")
+changeShorcutOrder("big-zoom", "17")
+changeShorcutOrder("toggle-personal-roboport", "18")
+changeShorcutOrder("give-blueprint-book", "19")

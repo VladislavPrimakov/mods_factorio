@@ -1,0 +1,9 @@
+{
+  "name": "cranes",
+  "version": "2.1.0",
+  "title": "Cranes",
+  "author": "Moral1ty",
+  "factorio_version": "2.1",
+  "homepage": "https://github.com/VladislavPrimakov/mods_factorio",
+  "description": "3x1 and 6x1 cranes that function like 3 or 6 inserters for UPS saving purposes. Supports migration from nco-inserter-cranes."
+}

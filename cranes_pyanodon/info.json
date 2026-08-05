@@ -1,0 +1,21 @@
+{
+  "name": "cranes_pyanodon",
+  "version": "2.1.0",
+  "title": "Cranes Pyanodon",
+  "author": "Moral1ty",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base",
+    "pyindustrygraphics",
+    "pycoalprocessing",
+    "pyhightech",
+    "pypetroleumhandling",
+    "pyrawores",
+    "pyalternativeenergy",
+    "pycoalprocessinggraphics",
+    "enable-all-feature-flags",
+    "! pycranes"
+  ],
+  "homepage": "https://github.com/VladislavPrimakov/mods_factorio",
+  "description": "Four tiers of 3x1 and 6x1 cranes for UPS saving purposes. Supports migration from InserterCranes-for-pymods."
+}

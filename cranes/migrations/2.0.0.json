@@ -1,0 +1,26 @@
+{
+  "item": [
+    ["nco-inserter-crane-mk1", "crane"],
+    ["nco-inserter-crane-mk2", "crane"],
+    ["nco-inserter-crane-mk3", "crane"],
+    ["nco-short-inserter-crane-mk1", "crane-short"],
+    ["nco-short-inserter-crane-mk2", "crane-short"],
+    ["nco-short-inserter-crane-mk3", "crane-short"]
+  ],
+  "recipe": [
+    ["nco-inserter-crane-mk1", "crane"],
+    ["nco-inserter-crane-mk2", "crane"],
+    ["nco-inserter-crane-mk3", "crane"],
+    ["nco-short-inserter-crane-mk1", "crane-short"],
+    ["nco-short-inserter-crane-mk2", "crane-short"],
+    ["nco-short-inserter-crane-mk3", "crane-short"]
+  ],
+  "entity": [
+    ["nco-inserter-crane-mk1", "crane"],
+    ["nco-inserter-crane-mk2", "crane"],
+    ["nco-inserter-crane-mk3", "crane"],
+    ["nco-short-inserter-crane-mk1", "crane-short"],
+    ["nco-short-inserter-crane-mk2", "crane-short"],
+    ["nco-short-inserter-crane-mk3", "crane-short"]
+  ]
+}

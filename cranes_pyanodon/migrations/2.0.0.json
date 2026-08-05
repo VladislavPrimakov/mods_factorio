@@ -1,0 +1,38 @@
+{
+  "item": [
+    ["nco-py-short-crane-mk1", "crane-short-mk1"],
+    ["nco-py-short-crane-mk2", "crane-short-mk2"],
+    ["nco-py-short-crane-mk3", "crane-short-mk3"],
+    ["nco-py-short-crane-mk4", "crane-short-mk4"],
+    ["nco-py-crane-mk1", "crane-mk1"],
+    ["nco-py-crane-mk2", "crane-mk2"],
+    ["nco-py-crane-mk3", "crane-mk3"],
+    ["nco-py-crane-mk4", "crane-mk4"]
+  ],
+  "recipe": [
+    ["nco-py-short-crane-mk1", "crane-short-mk1"],
+    ["nco-py-short-crane-mk2", "crane-short-mk2"],
+    ["nco-py-short-crane-mk3", "crane-short-mk3"],
+    ["nco-py-short-crane-mk4", "crane-short-mk4"],
+    ["nco-py-crane-mk1", "crane-mk1"],
+    ["nco-py-crane-mk2", "crane-mk2"],
+    ["nco-py-crane-mk3", "crane-mk3"],
+    ["nco-py-crane-mk4", "crane-mk4"]
+  ],
+  "entity": [
+    ["nco-py-short-crane-mk1", "crane-short-mk1"],
+    ["nco-py-short-crane-mk2", "crane-short-mk2"],
+    ["nco-py-short-crane-mk3", "crane-short-mk3"],
+    ["nco-py-short-crane-mk4", "crane-short-mk4"],
+    ["nco-py-crane-mk1", "crane-mk1"],
+    ["nco-py-crane-mk2", "crane-mk2"],
+    ["nco-py-crane-mk3", "crane-mk3"],
+    ["nco-py-crane-mk4", "crane-mk4"]
+  ],
+  "technology": [
+    ["technology-nco-py-crane-mk1-crane", "cranes-mk1"],
+    ["technology-nco-py-crane-mk2-crane", "cranes-mk2"],
+    ["technology-nco-py-crane-mk3-crane", "cranes-mk3"],
+    ["technology-nco-py-crane-mk4-crane", "cranes-mk4"]
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "modpack_pyanodon",
+  "version": "2.1.0",
+  "factorio_version": "2.1",
+  "title": "Modpack to full pyanodon",
+  "author": "moral1ty",
+  "homepage": "https://github.com/VladislavPrimakov/mods_factorio",
+  "description": "All dependencies to full pyanodon and some other usefull mods. Also some pyanodon's improvements.",
+  "dependencies": [
+    "pycoalprocessing",
+    "pyindustry",
+    "pyfusionenergy",
+    "pyhightech",
+    "pyrawores",
+    "pyrawores",
+    "pypetroleumhandling",
+    "pyalienlife",
+    "pyalternativeenergy",
+    "enable-all-feature-flags",
+
+    "+ qol_by_morality",
+    "+ cybersyn_by_morality",
+    "+ DeadlocksStackingForPyanadon",
+    "+ cranes_pyanodon",
+    "+ qol_research",
+    "+ bobinserters",
+    "+ blueprint-sandboxes",
+    "+ Kux-PersonalTeleport"
+  ]
+}

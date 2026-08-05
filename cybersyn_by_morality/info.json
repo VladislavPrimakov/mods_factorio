@@ -1,0 +1,10 @@
+{
+  "name": "cybersyn_by_morality",
+  "version": "2.1.0",
+  "factorio_version": "2.1",
+  "title": "Cybersyn by morality",
+  "author": "moral1ty",
+  "description": "Several very useful mods for increase Cybersyn experience",
+  "homepage": "https://github.com/VladislavPrimakov/mods_factorio",
+  "dependencies": ["cybersyn2", "cybersyn2-combinator", "+WideChests", "+WideChestsLogistic", "? cranes", "? cranes_pyanodon"]
+}

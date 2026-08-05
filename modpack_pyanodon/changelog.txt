@@ -1,0 +1,28 @@
+Version: 2.1.0
+Date: 2026.08.04
+  Changes:
+  - Factorio 2.1 compatibility. Set qol mods as recommended dependencies.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.4
+Date: 2026.01.04
+  Changes:
+  - Added config to qol_research for py science.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.3
+Date: 2025.12.02
+  Changes:
+  - Adjusted mining speed for big drills.
+  - Set Kux-PersonalTeleport as optional.
+  - Added mod qol_research.
+---------------------------------------------------------------------------------------------------
+Version: 2.0.1
+Date: 2025.05.24
+  Changes:
+  - More expensive recipes for deadlock's loaders.
+  - Migrated Cranes from InserterCranes-for-pymods to cranes_pyanodon. 
+---------------------------------------------------------------------------------------------------
+Version: 2.0.0
+Date: 2024.12.12
+  Changes:
+  - Created mod.
+---------------------------------------------------------------------------------------------------
