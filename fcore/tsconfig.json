@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "types": [
+      "typed-factorio/runtime",
+      "typed-factorio/prototype",
+      "@typescript-to-lua/language-extensions"
+    ],
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react",
+    "jsxFactory": "createElement",
+    "jsxFragmentFactory": "Fragment"
+  },
+  "tstl": {
+    "luaTarget": "5.2",
+    "luaLibImport": "require",
+    "noImplicitSelf": true,
+    "sourceMapTraceback": true
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
+
+

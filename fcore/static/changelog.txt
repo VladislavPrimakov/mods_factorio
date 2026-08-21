@@ -1,0 +1,13 @@
+----------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-08-21
+  Features:
+    - Initial release of fcore (Factorio Core Library).
+    - Declarative React Virtual DOM reconciler with native JSX support for Factorio 2.0.
+    - React hooks: useState, useReducer, useEffect, useLayoutEffect, useMemo, useCallback, useRef, useInterval, useEntityLifecycle, useTransientData.
+    - Bucketed tick scheduler with O(1) tick lookup.
+    - High-performance tag-based event bus routing.
+    - Pre-built UI components: WindowFrame, Titlebar, TabbedPane, SectionGroup, WellSection, WellFold, Input, Button, Checkbox, Dropdown, RadioButtons, SignalPicker, SlotButton, SlotButtonTable.
+    - Type-safe GUI style engine with StyleFor<E> inference.
+    - Composite signal and quality encoder/decoder.
+    - Structured logger (strace) with lazy evaluation and runtime log level settings.

@@ -1,4 +1,7 @@
-0-things*/
-cybersyn2_*/
 *.zip
+node_modules/
+dist/
+releases/
+.astro/
+/other
 AGENTS.md

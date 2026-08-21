@@ -1,0 +1,24 @@
+﻿export type VanillaListboxStyleName =
+  | "list_box"
+  | "list_box_under_tabs"
+  | "wide_list_box"
+  | "wide_list_box_in_shallow_frame"
+  | "wide_list_box_under_subheader"
+  | "wide_list_box_in_shallow_frame_under_subheader"
+  | "list_box_under_subheader"
+  | "campaigns_list_box"
+  | "campaign_levels_list_box"
+  | "custom_games_list_box"
+  | "train_station_list_box"
+  | "floating_train_station_list_box"
+  | "schedule_in_train_view_list_box"
+  | "permissions_groups_list_box"
+  | "permissions_players_list_box"
+  | "naked_list_box";
+
+/**
+ * Extension interface for mods to register custom listbox styles.
+ */
+export interface ModListboxStyles {}
+
+export type ListboxStyleName = VanillaListboxStyleName | keyof ModListboxStyles;

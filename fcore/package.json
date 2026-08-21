@@ -1,0 +1,118 @@
+{
+  "name": "@vladislavprimakov/fcore",
+  "version": "1.0.0",
+  "description": "Reactive Virtual DOM UI framework and modding toolkit for Factorio 2.0 (TypeScript-To-Lua)",
+  "author": "Vladislav Primakov <Primakov2002@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://vladislavprimakov.github.io/mods_factorio/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VladislavPrimakov/mods_factorio.git",
+    "directory": "fcore"
+  },
+  "keywords": [
+    "factorio",
+    "factorio-mod",
+    "typescript-to-lua",
+    "tstl",
+    "react",
+    "virtual-dom",
+    "typed-factorio"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist",
+    "plugin.cjs",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "default": "./dist/react/index.lua"
+    },
+    "./react-components": {
+      "types": "./dist/react-components/index.d.ts",
+      "default": "./dist/react-components/index.lua"
+    },
+    "./styles": {
+      "types": "./dist/styles/index.d.ts",
+      "default": "./dist/styles/index.lua"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "default": "./dist/types.lua"
+    },
+    "./event": {
+      "types": "./dist/utils/event.d.ts",
+      "default": "./dist/utils/event.lua"
+    },
+    "./utils/event": {
+      "types": "./dist/utils/event.d.ts",
+      "default": "./dist/utils/event.lua"
+    },
+    "./signal": {
+      "types": "./dist/utils/signal.d.ts",
+      "default": "./dist/utils/signal.lua"
+    },
+    "./utils/signal": {
+      "types": "./dist/utils/signal.d.ts",
+      "default": "./dist/utils/signal.lua"
+    },
+    "./strace": {
+      "types": "./dist/utils/strace.d.ts",
+      "default": "./dist/utils/strace.lua"
+    },
+    "./utils/strace": {
+      "types": "./dist/utils/strace.d.ts",
+      "default": "./dist/utils/strace.lua"
+    },
+    "./data": {
+      "types": "./dist/utils/data.d.ts",
+      "default": "./dist/utils/data.lua"
+    },
+    "./utils/data": {
+      "types": "./dist/utils/data.d.ts",
+      "default": "./dist/utils/data.lua"
+    },
+    "./utils/scheduler": {
+      "types": "./dist/utils/scheduler.d.ts",
+      "default": "./dist/utils/scheduler.lua"
+    },
+    "./table": {
+      "types": "./dist/utils/table.d.ts",
+      "default": "./dist/utils/table.lua"
+    },
+    "./utils/table": {
+      "types": "./dist/utils/table.d.ts",
+      "default": "./dist/utils/table.lua"
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "generate": "tsx scripts/generate-props.ts",
+    "build": "npm run format && npm run lint && node build.mjs",
+    "release": "node release.mjs",
+    "publish": "node release.mjs",
+    "watch": "node build.mjs --watch",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "@typescript-to-lua/language-extensions": "^1.19.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.5",
+    "prettier": "^3.2.5",
+    "ts-morph": "^28.0.0",
+    "tsx": "^4.23.12",
+    "typed-factorio": "^4.2.0",
+    "typescript": "6.0.2",
+    "typescript-to-lua": "^1.37.0"
+  }
+}

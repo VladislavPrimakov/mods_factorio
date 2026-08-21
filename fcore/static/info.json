@@ -1,0 +1,12 @@
+{
+  "name": "fcore",
+  "version": "1.0.0",
+  "factorio_version": "2.1",
+  "title": "Factorio Core Library",
+  "author": "moral1ty",
+  "homepage": "https://github.com/VladislavPrimakov/mods_factorio",
+  "description": "Modern reactive UI framework and utilities for Factorio 2.0 mods",
+  "dependencies": [
+    "base >= 2.1.0"
+  ]
+}
