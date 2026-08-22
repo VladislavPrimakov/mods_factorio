@@ -3,24 +3,26 @@ title: "Styles"
 description: Architecture and usage guide for the Factorio 2.0 style system and React style props.
 ---
 
-The `fcore/styles` system bridges Factorio's two-phase GUI engine: registering high-performance prototype styles in `data.ts` and applying reactive inline overrides in JSX components during `control.ts`.
+The `fcore/styles` module bridges Factorio's two-stage GUI architecture: registering 50+ high-performance prototype styles in the mod's prototype stage (`data.ts`) and applying type-safe reactive inline overrides in JSX components during runtime (`control.ts`).
 
 ---
 
-## 🏛 How It Works
+## 🏛 How It Works: Prototype vs. Runtime Styling
 
-Factorio GUI styling operates across two distinct engine stages:
+All built-in GUI styles (windows, slot buttons, tabbed panes, well sections, status indicators) are automatically registered into `data.raw["gui-style"].default` when `fcore` is included as a mod dependency.
 
 ```mermaid
 flowchart LR
-    subgraph DataStage["1. Data Stage (data.ts)"]
-        Import["import 'fcore/styles'"] --> Prototypes["data.raw['gui-style'].default\nRegisters 50+ component styles\n(Windows, Slots, Buttons, Tabs)"]
+    subgraph DataStage["1. Prototype Stage (fcore data.lua)"]
+        direction TB
+        ModDep["fcore Mod Dependency"] --> Prototypes["data.raw['gui-style']<br/>(Registers 50+ prototype styles:<br/>Slots, Buttons, Tabs, Frames)"]
     end
 
-    subgraph RuntimeStage["2. Runtime Stage (control.ts / React)"]
-        JSX["<SlotButton color='yellow' styles={{ width: 40 }} />"]
-        Prototypes -.->|"Base Style: 'react_slot_button_yellow'"| Elem["LuaGuiElement"]
-        JSX -.->|"Inline Overrides (width, padding)"| Elem
+    subgraph RuntimeStage["2. Runtime Stage (control.ts)"]
+        direction TB
+        JSX["<SlotButton color='yellow'<br/>styles={{ width: 40 }} />"]
+        Prototypes -.->|"Base style: 'react_slot_button_yellow'"| Elem["LuaGuiElement"]
+        JSX -.->|"Inline overrides (width, padding)"| Elem
     end
 
     DataStage --> RuntimeStage
@@ -28,21 +30,9 @@ flowchart LR
 
 ---
 
-## 🚀 Quickstart: Loading Styles
+## 🎨 1. Component Style Variants
 
-Add one import to your mod's `data.ts`. This automatically injects all necessary styles for `WindowFrame`, `Titlebar`, `SlotButton`, `WellSection`, `TabbedPane`, and standard widgets:
-
-```ts
-/** @noSelfInFile */
-// src/data.ts
-import "fcore/styles";
-```
-
----
-
-## 🎨 Component Style Variants
-
-Built-in components provide type-safe style props corresponding to Factorio prototype styles:
+Built-in UI components provide type-safe props mapping directly to pre-registered Factorio prototype styles:
 
 ```tsx
 import { createElement } from "fcore/react";
@@ -51,29 +41,52 @@ import { Button, SlotButton, Indicator } from "fcore/react-components";
 export function StyleDemo() {
   return (
     <>
-      {/* Button action variants */}
-      <Button caption="Confirm" variant="confirm" onClick={() => {}} />
-      <Button caption="Delete" variant="danger" onClick={() => {}} />
-      <Button caption="Back" variant="back" onClick={() => {}} />
+      {/* Button action styles */}
+      <Button caption="Confirm" style="confirm_button" onClick={() => {}} />
+      <Button caption="Delete" style="red_button" onClick={() => {}} />
+      <Button caption="Back" style="back_button" onClick={() => {}} />
 
       {/* Slot button color variants */}
       <SlotButton color="yellow" item="iron-plate" />
       <SlotButton color="red" item="copper-ore" />
       <SlotButton color="green" item="electronic-circuit" />
+      <SlotButton color="blue" item="transport-belt" />
 
       {/* Status indicators */}
-      <Indicator color="green" tooltip="Online" />
-      <Indicator color="red" tooltip="Fault detected" />
+      <Indicator color="green" tooltip="System Online" />
+      <Indicator color="red" tooltip="Fault Detected" />
+      <Indicator color="yellow" tooltip="Awaiting Trains" />
     </>
   );
 }
 ```
 
+### Style Name Types
+
+Each GUI element type provides a dedicated union type for all valid style names:
+
+* `ButtonStyles` — Vanilla and reactive button styles (`react_slot_button_*`, `confirm_button`, `red_button`, etc.)
+* `FrameStyles` — Window frames, shallow boxes, and inner panels (`inside_shallow_frame`, `dialog_frame`, etc.)
+* `LabelStyles` — Typography styles (`react_frame_title`, `caption_label`, `bold_label`, etc.)
+* `ScrollPaneStyles` — Scroll areas (`react_naked_scroll_pane`, `scroll_pane_in_shallow_frame`, etc.)
+* `TableStyles` — Grid layouts (`react_table_white_lines`, `slot_table`, etc.)
+* `FlowStyles` — Flow containers (`react_indicator_flow`, `react_titlebar_flow`, etc.)
+* `DropdownStyles`, `CheckboxStyles`, `SliderStyles`, `ProgressbarStyles`, `TabStyles`, `TabbedPaneStyles`, `ImageStyles`, etc.
+
+The universal `StyleFor<E>` type maps any element tag `E` to its valid style names:
+
+```tsx
+// Full autocomplete on known styles, while seamlessly accepting custom string names:
+export type StyleFor<E extends string = string> = E extends GuiElementType
+  ? ElementStyleMap[E] | (string & {})
+  : string;
+```
+
 ---
 
-## ⚡ Inline Style Overrides (`styles={{ ... }}`)
+## ⚡ 2. Type-Safe Inline Overrides (`styles={{ ... }}`)
 
-Every component accepts a `styles` prop for customizing layout dimensions, alignments, and padding. The reconciler automatically diffs properties and updates only changed values:
+Every JSX element accepts a `styles` prop for customizing runtime dimensions, margins, paddings, and alignments. Property names and types are strictly validated at compile-time via `StylesFor<E>`:
 
 ```tsx
 import { createElement } from "fcore/react";
@@ -84,7 +97,7 @@ export function CustomLayout() {
     <VFlow
       styles={{
         width: 380,
-        padding: [8, 12],
+        padding: 12,
         gap: 8,
         horizontal_align: "center",
       }}
@@ -98,11 +111,51 @@ export function CustomLayout() {
 }
 ```
 
+### Supported Runtime Properties
+
+`fcore` provides complete compile-time type safety for **100% of Factorio 2.0 `LuaStyle` properties**, accurately inferred for each specific element:
+
+* **Dimensions:** `width`, `height`, `minimal_width`, `maximal_width`, `minimal_height`, `maximal_height`
+* **Layout & Spacing:** `padding`, `top_padding`, `bottom_padding`, `left_padding`, `right_padding`, `margin`, `gap`
+* **Alignment:** `horizontal_align` (`"left"` | `"center"` | `"right"`), `vertical_align` (`"top"` | `"center"` | `"bottom"`)
+* **Stretch & Squash:** `horizontally_stretchable`, `vertically_stretchable`, `horizontally_squashable`
+* **Typography (Labels & Buttons):** `font`, `font_color`, `single_line`, `rich_text_setting`
+* **Element-Specific:** `horizontal_spacing` on flows, `cell_padding` on tables, `selected_font_color` on buttons
+
 ---
 
-## 💡 Key Takeaway: Automatic Override Preservation
+## 💡 3. Automatic Override Preservation
 
-In the native Factorio C++ engine, whenever `elem.style = "new_style"` is assigned, all custom dimensions (`width`, `height`, `padding`) are reset to default prototype values.
+In native Factorio C++, assigning `elem.style = "new_style"` immediately resets all custom dimensions (`width`, `height`, `padding`) back to the prototype's default values.
 
-The `fcore` Reconciler handles this under the hood: whenever a base style changes, it **automatically re-applies all inline overrides**, ensuring your window layout never breaks.
+The `fcore` Reconciler handles this automatically: whenever a base `style` changes dynamically, it **re-applies all active `styles` overrides**, ensuring layouts never collapse or glitch.
 
+---
+
+## 🛠 4. Registering Custom Prototype Styles
+
+If your mod creates new prototype styles in `data.ts`, use `getDefaultStyles()` to access the global style table and type-check with `satisfies`:
+
+```ts
+// data.ts
+import type { ButtonStyleSpecification, FrameStyleSpecification } from "factorio:prototype";
+import { getDefaultStyles } from "fcore/styles";
+
+const styles = getDefaultStyles();
+if (styles) {
+  styles.my_custom_button = {
+    type: "button_style",
+    parent: "button",
+    default_font_color: [1, 0.8, 0],
+    height: 36,
+  } satisfies ButtonStyleSpecification;
+
+  styles.my_panel_frame = {
+    type: "frame_style",
+    parent: "inside_shallow_frame",
+    padding: 16,
+  } satisfies FrameStyleSpecification;
+}
+```
+
+Since `StyleFor<E>` uses the open union pattern `(string & {})`, your custom style names (`style="my_custom_button"`) work immediately in JSX components without requiring any type declarations or module augmentations.

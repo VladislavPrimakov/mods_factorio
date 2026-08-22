@@ -1,4 +1,19 @@
 ----------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2026-08-22
+  Refactoring:
+    - Overhauled styles module architecture: consolidated internal definitions into _common.ts and simplified public index.ts exports.
+    - Flattened all GUI element style types into dedicated *Styles string unions (ButtonStyles, FrameStyles, LabelStyles, etc.) for direct IntelliSense tooltips and cleaner TypeDoc API docs.
+    - Simplified prototype styling helper getDefaultStyles() and removed overengineered TypedGuiStyle.
+    - Open union pattern StyleFor<E> = ElementStyleMap[E] | (string & {}) seamlessly accepts custom mod styles without module augmentation.
+  Features:
+    - Added lazy logging support to strace (traceLazy, debugLazy, infoLazy, warnLazy, errorLazy) with zero execution overhead when log levels are disabled.
+    - Added log level checker methods to strace (isTrace, isDebug, isInfo, isLevelEnabled).
+    - Added runtime-global mod setting fcore-log-level for real-time in-game log level control without restarting.
+  Documentation:
+    - Updated Starlight documentation website with comprehensive architectural guides for styles, strace, scheduler, and React.
+
+----------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2026-08-21
   Features:

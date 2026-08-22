@@ -1,14 +1,12 @@
-﻿import { getDefaultStyles } from "./_common";
+import { getDefaultStyles } from "./_common";
 
-export type ReactEmptyWidgetStyleName =
+export type EmptyWidgetStyles =
   | "react_dialog_footer_drag_handle"
   | "react_dialog_footer_drag_handle_no_right"
   | "react_dialog_titlebar_drag_handle"
   | "react_horizontal_pusher"
   | "react_titlebar_drag_handle"
-  | "react_vertical_pusher";
-
-export type VanillaEmptyWidgetStyleName =
+  | "react_vertical_pusher"
   | "empty_widget"
   | "tips_and_tricks_simulation"
   | "entity_button_base"
@@ -29,13 +27,6 @@ export type VanillaEmptyWidgetStyleName =
   | "draggable_space_in_temporary_train_station"
   | "draggable_space_in_train_schedule"
   | "partially_fulfilled_draggable_space_in_train_schedule";
-
-/**
- * Extension interface for mods to register custom empty widget styles.
- */
-export interface ModEmptyWidgetStyles {}
-
-export type EmptyWidgetStyleName = ReactEmptyWidgetStyleName | VanillaEmptyWidgetStyleName | keyof ModEmptyWidgetStyles;
 
 const styles = getDefaultStyles();
 if (styles) {

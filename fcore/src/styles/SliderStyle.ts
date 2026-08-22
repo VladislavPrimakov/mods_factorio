@@ -1,4 +1,4 @@
-﻿export type VanillaSliderStyleName =
+export type SliderStyles =
   | "slider"
   | "notched_slider"
   | "map_generator_notched_slider"
@@ -9,10 +9,3 @@
   | "blue_slider"
   | "other_settings_slider"
   | "notched_double_slider";
-
-/**
- * Extension interface for mods to register custom slider styles.
- */
-export interface ModSliderStyles {}
-
-export type SliderStyleName = VanillaSliderStyleName | keyof ModSliderStyles;

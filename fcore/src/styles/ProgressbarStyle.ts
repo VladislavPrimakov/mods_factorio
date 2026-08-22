@@ -1,9 +1,4 @@
-﻿import type { ProgressBarStyle as FactorioProgressBarStyle } from "factorio:runtime";
-import type { CleanStyle } from "./_types";
-
-export type ProgressbarStyles = CleanStyle<FactorioProgressBarStyle>;
-
-export type VanillaProgressbarStyleName =
+export type ProgressbarStyles =
   | "progressbar"
   | "production_progressbar"
   | "burning_progressbar"
@@ -24,10 +19,3 @@ export type VanillaProgressbarStyleName =
   | "achievement_card_progressbar"
   | "heat_progressbar"
   | "rocket_weight_used_progress_bar";
-
-/**
- * Extension interface for mods to register custom progressbar styles.
- */
-export interface ModProgressbarStyles {}
-
-export type ProgressbarStyleName = VanillaProgressbarStyleName | keyof ModProgressbarStyles;

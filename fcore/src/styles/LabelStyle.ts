@@ -1,12 +1,12 @@
-﻿import type { LabelStyle as FactorioLabelStyle } from "factorio:runtime";
-import type { CleanStyle } from "./_types";
 import { getDefaultStyles } from "./_common";
 
-export type LabelStyles = CleanStyle<FactorioLabelStyle>;
-
-export type ReactLabelStyleName = "react_frame_title" | "react_label_signal_count" | "react_label_signal_count_upper" | "react_semibold_label" | "react_large_semibold_label" | "react_multiline_label";
-
-export type VanillaLabelStyleName =
+export type LabelStyles =
+  | "react_frame_title"
+  | "react_label_signal_count"
+  | "react_label_signal_count_upper"
+  | "react_semibold_label"
+  | "react_large_semibold_label"
+  | "react_multiline_label"
   | "label"
   | "current_research_info_percent_label"
   | "frame_title"
@@ -74,13 +74,6 @@ export type VanillaLabelStyleName =
   | "slot_column_header_label"
   | "description_label"
   | "label_with_bold_title";
-
-/**
- * Extension interface for mods to register custom label styles.
- */
-export interface ModLabelStyles {}
-
-export type LabelStyleName = ReactLabelStyleName | VanillaLabelStyleName | keyof ModLabelStyles;
 
 const styles = getDefaultStyles();
 if (styles) {

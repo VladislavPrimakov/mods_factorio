@@ -1,8 +1,8 @@
-﻿import { getDefaultStyles, png_subheader_line } from "./_common";
+import { getDefaultStyles, png_subheader_line } from "./_common";
 
-export type ReactLineStyleName = "react_subheader_horizontal_line" | "react_titlebar_separator_line";
-
-export type VanillaLineStyleName =
+export type LineStyles =
+  | "react_subheader_horizontal_line"
+  | "react_titlebar_separator_line"
   | "line"
   | "inside_shallow_frame_with_padding_line"
   | "blurry_panel_horizontal_line"
@@ -13,13 +13,6 @@ export type VanillaLineStyleName =
   | "lab_progress_and_slot_divider_empty"
   | "horizontal_line"
   | "vertical_line";
-
-/**
- * Extension interface for mods to register custom line styles.
- */
-export interface ModLineStyles {}
-
-export type LineStyleName = ReactLineStyleName | VanillaLineStyleName | keyof ModLineStyles;
 
 const styles = getDefaultStyles();
 if (styles) {

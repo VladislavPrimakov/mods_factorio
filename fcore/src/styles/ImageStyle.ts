@@ -1,23 +1,15 @@
-﻿import type { ImageStyle as FactorioImageStyle } from "factorio:runtime";
 import type { SpritePrototype } from "factorio:prototype";
-import type { CleanStyle, IndicatorColor, ActionIconVariant } from "./_types";
+import type { IndicatorColor, ActionIconVariant } from "./_common";
 import { getDefaultStyles, INDICATOR_COLORS, png_indicators, png_frame_action_icons } from "./_common";
 
-export type ImageStyles = CleanStyle<FactorioImageStyle>;
-
 export type IndicatorSpriteName = `react_indicator_${IndicatorColor}`;
-export type PinSpriteName = `react_pin_${ActionIconVariant}`;
-export type SettingsSpriteName = `react_settings_${ActionIconVariant}`;
+type PinSpriteName = `react_pin_${ActionIconVariant}`;
+type SettingsSpriteName = `react_settings_${ActionIconVariant}`;
 
-/**
- * Extension interface for mods to register custom sprites.
- */
-export interface ModSprites {}
+type ReactSpriteName = IndicatorSpriteName | PinSpriteName | SettingsSpriteName;
 
-export type ReactSpriteName = IndicatorSpriteName | PinSpriteName | SettingsSpriteName | keyof ModSprites;
-
-export type ReactImageStyleName = "react_indicator";
-export type VanillaImageStyleName =
+export type ImageStyles =
+  | "react_indicator"
   | "image"
   | "indicator"
   | "achievement_image"
@@ -36,13 +28,6 @@ export type VanillaImageStyleName =
   | "recipe_tooltip_horizontal_image"
   | "tool_equip_equipment_image"
   | "current_research_info_image";
-
-/**
- * Extension interface for mods to register custom image styles.
- */
-export interface ModImageStyles {}
-
-export type ImageStyleName = ReactImageStyleName | VanillaImageStyleName | keyof ModImageStyles;
 
 const styles = getDefaultStyles();
 if (styles) {

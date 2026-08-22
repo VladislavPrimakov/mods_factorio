@@ -32,7 +32,7 @@ import type {
   OnSpacePlatformBuiltEntityEvent,
 } from "factorio:runtime";
 
-import type { StyleFor, StylesFor } from "../styles/_types";
+import type { StyleFor, StylesFor } from "../styles";
 import type { NativePropsFor } from "./generated-props";
 
 // ============================================================================

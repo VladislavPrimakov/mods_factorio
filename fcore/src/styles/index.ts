@@ -1,4 +1,4 @@
-﻿// 1. Runtime registration of prototype styles on `data.raw["gui-style"]`
+// 1. Prototype registration (side-effects on data.raw["gui-style"])
 import "./ButtonStyle";
 import "./FrameStyle";
 import "./LabelStyle";
@@ -12,33 +12,33 @@ import "./ImageStyle";
 import "./LineStyle";
 import "./CheckboxStyle";
 
-// 2. Extension interfaces for module augmentation by consumer mods
-export type { ModButtonStyles } from "./ButtonStyle";
-export type { ModCameraStyles } from "./CameraStyle";
-export type { ModCheckboxStyles } from "./CheckboxStyle";
-export type { ModChooseElemButtonStyles } from "./ChooseElemButtonStyle";
-export type { ModDropdownStyles } from "./DropdownStyle";
-export type { ModEmptyWidgetStyles } from "./EmptyWidgetStyle";
-export type { ModEntityPreviewStyles } from "./EntityPreviewStyle";
-export type { ModFlowStyles } from "./FlowStyle";
-export type { ModFrameStyles } from "./FrameStyle";
-export type { ModImageStyles, ModSprites } from "./ImageStyle";
-export type { ModInventoryStyles } from "./InventoryStyle";
-export type { ModLabelStyles } from "./LabelStyle";
-export type { ModLineStyles } from "./LineStyle";
-export type { ModListboxStyles } from "./ListboxStyle";
-export type { ModMinimapStyles } from "./MinimapStyle";
-export type { ModProgressbarStyles } from "./ProgressbarStyle";
-export type { ModScrollPaneStyles } from "./ScrollPaneStyle";
-export type { ModSliderStyles } from "./SliderStyle";
-export type { ModSwitchStyles } from "./SwitchStyle";
-export type { ModTabStyles } from "./TabStyle";
-export type { ModTabbedPaneStyles } from "./TabbedPaneStyle";
-export type { ModTableStyles } from "./TableStyle";
-export type { ModTextboxStyles } from "./TextboxStyle";
+// 2. Element style names per GUI element
+export type { ButtonStyles } from "./ButtonStyle";
+export type { CameraStyles } from "./CameraStyle";
+export type { CheckboxStyles } from "./CheckboxStyle";
+export type { ChooseElemButtonStyles } from "./ChooseElemButtonStyle";
+export type { DropdownStyles } from "./DropdownStyle";
+export type { EmptyWidgetStyles } from "./EmptyWidgetStyle";
+export type { EntityPreviewStyles } from "./EntityPreviewStyle";
+export type { FlowStyles } from "./FlowStyle";
+export type { FrameStyles } from "./FrameStyle";
+export type { ImageStyles, IndicatorSpriteName } from "./ImageStyle";
+export type { InventoryStyles } from "./InventoryStyle";
+export type { LabelStyles } from "./LabelStyle";
+export type { LineStyles } from "./LineStyle";
+export type { ListboxStyles } from "./ListboxStyle";
+export type { MinimapStyles } from "./MinimapStyle";
+export type { ProgressbarStyles } from "./ProgressbarStyle";
+export type { ScrollPaneStyles } from "./ScrollPaneStyle";
+export type { SliderStyles } from "./SliderStyle";
+export type { SwitchStyles } from "./SwitchStyle";
+export type { TabStyles } from "./TabStyle";
+export type { TabbedPaneStyles } from "./TabbedPaneStyle";
+export type { TableStyles } from "./TableStyle";
+export type { TextboxStyles } from "./TextboxStyle";
 
-// 3. Common color and variant types
-export type { SlotColor, IndicatorColor, ActionIconVariant, Color } from "./_types";
+// 3. Resolution & runtime style types
+export type { Color, SlotColor, IndicatorColor, LuaStyles, StylesFor, StyleFor } from "./_common";
 
-// 4. Universal style helpers
-export type { StyleFor, StylesFor, AnyGuiStyleName, LuaStyles, BaseLuaStyle, TypedGuiStyle } from "./_types";
+// 4. Public constants & prototype helpers
+export { SLOT_COLORS, INDICATOR_COLORS, getDefaultStyles } from "./_common";

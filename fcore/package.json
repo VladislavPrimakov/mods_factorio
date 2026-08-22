@@ -1,6 +1,6 @@
 {
   "name": "@vladislavprimakov/fcore",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reactive Virtual DOM UI framework and modding toolkit for Factorio 2.0 (TypeScript-To-Lua)",
   "author": "Vladislav Primakov <Primakov2002@gmail.com>",
   "license": "MIT",
@@ -96,7 +96,6 @@
     "generate": "tsx scripts/generate-props.ts",
     "build": "npm run format && npm run lint && node build.mjs",
     "release": "node release.mjs",
-    "publish": "node release.mjs",
     "watch": "node build.mjs --watch",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "format": "prettier --write \"src/**/*.{ts,tsx}\""

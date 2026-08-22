@@ -1,12 +1,8 @@
-﻿import type { FlowStyle as FactorioFlowStyle } from "factorio:runtime";
-import type { CleanStyle } from "./_types";
 import { getDefaultStyles } from "./_common";
 
-export type FlowStyles = CleanStyle<FactorioFlowStyle>;
-
-export type ReactFlowStyleName = "react_indicator_flow" | "react_titlebar_flow";
-
-export type VanillaFlowStyleName =
+export type FlowStyles =
+  | "react_indicator_flow"
+  | "react_titlebar_flow"
   | "flow"
   | "horizontal_flow"
   | "vertical_flow"
@@ -31,13 +27,6 @@ export type VanillaFlowStyleName =
   | "new_game_difficulty_vertical_flow"
   | "crafting_queue_flow"
   | "centering_horizontal_flow";
-
-/**
- * Extension interface for mods to register custom flow styles.
- */
-export interface ModFlowStyles {}
-
-export type FlowStyleName = ReactFlowStyleName | VanillaFlowStyleName | keyof ModFlowStyles;
 
 const styles = getDefaultStyles();
 if (styles) {

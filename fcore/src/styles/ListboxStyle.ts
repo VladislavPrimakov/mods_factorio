@@ -1,4 +1,4 @@
-﻿export type VanillaListboxStyleName =
+export type ListboxStyles =
   | "list_box"
   | "list_box_under_tabs"
   | "wide_list_box"
@@ -15,10 +15,3 @@
   | "permissions_groups_list_box"
   | "permissions_players_list_box"
   | "naked_list_box";
-
-/**
- * Extension interface for mods to register custom listbox styles.
- */
-export interface ModListboxStyles {}
-
-export type ListboxStyleName = VanillaListboxStyleName | keyof ModListboxStyles;

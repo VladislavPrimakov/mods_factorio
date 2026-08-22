@@ -1,12 +1,7 @@
-﻿import type { TableStyle as FactorioTableStyle } from "factorio:runtime";
-import type { CleanStyle } from "./_types";
 import { getDefaultStyles } from "./_common";
 
-export type TableStyles = CleanStyle<FactorioTableStyle>;
-
-export type ReactTableStyleName = "react_table_white_lines";
-
-export type VanillaTableStyleName =
+export type TableStyles =
+  | "react_table_white_lines"
   | "table"
   | "slot_table"
   | "compact_slot_table"
@@ -31,13 +26,6 @@ export type VanillaTableStyleName =
   | "undelete_space_platforms_table"
   | "research_queue_table"
   | "mappers_table";
-
-/**
- * Extension interface for mods to register custom table styles.
- */
-export interface ModTableStyles {}
-
-export type TableStyleName = ReactTableStyleName | VanillaTableStyleName | keyof ModTableStyles;
 
 const styles = getDefaultStyles();
 if (styles) {

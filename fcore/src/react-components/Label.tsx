@@ -1,5 +1,5 @@
-﻿import { createElement, type PrimitiveProps } from "../react";
-import type { LabelStyles } from "../styles/_types";
+import { createElement, type PrimitiveProps } from "../react";
+import type { StylesFor } from "../styles";
 
 /**
  * Props for the Factorio `Label` component.
@@ -30,7 +30,7 @@ export type LabelProps = PrimitiveProps<"label"> & {
 export function Label(props: LabelProps) {
   const { bold, large, richText, multiline, styles, ...rest } = props;
 
-  const customStyles: LabelStyles = { ...styles };
+  const customStyles: StylesFor<"label"> = { ...styles };
   if (bold) customStyles.font = "default-bold";
   if (large) customStyles.font = "default-large";
 

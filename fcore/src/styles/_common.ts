@@ -1,9 +1,44 @@
-import type { ButtonStyleSpecification, Color } from "factorio:prototype";
-import type { TypedGuiStyle } from "./_types";
+import type { GuiElementType, BaseStyle, ButtonStyle, FlowStyle, FrameStyle, ImageStyle, LabelStyle, ProgressBarStyle, ScrollPaneStyle, TableStyle } from "factorio:runtime";
+import type { ButtonStyleSpecification, Color, StyleSpecification } from "factorio:prototype";
+
+import type { ButtonStyles } from "./ButtonStyle";
+import type { FrameStyles } from "./FrameStyle";
+import type { LabelStyles } from "./LabelStyle";
+import type { EmptyWidgetStyles } from "./EmptyWidgetStyle";
+import type { FlowStyles } from "./FlowStyle";
+import type { ScrollPaneStyles } from "./ScrollPaneStyle";
+import type { TableStyles } from "./TableStyle";
+import type { TextboxStyles } from "./TextboxStyle";
+import type { TabbedPaneStyles } from "./TabbedPaneStyle";
+import type { ImageStyles } from "./ImageStyle";
+import type { CheckboxStyles } from "./CheckboxStyle";
+import type { LineStyles } from "./LineStyle";
+import type { DropdownStyles } from "./DropdownStyle";
+import type { ListboxStyles } from "./ListboxStyle";
+import type { SliderStyles } from "./SliderStyle";
+import type { ProgressbarStyles } from "./ProgressbarStyle";
+import type { SwitchStyles } from "./SwitchStyle";
+import type { TabStyles } from "./TabStyle";
+import type { CameraStyles } from "./CameraStyle";
+import type { ChooseElemButtonStyles } from "./ChooseElemButtonStyle";
+import type { MinimapStyles } from "./MinimapStyle";
+import type { EntityPreviewStyles } from "./EntityPreviewStyle";
+import type { InventoryStyles } from "./InventoryStyle";
+
+/* ========================================================================== */
+/*                             COLOR & ASSET CONSTANTS                        */
+/* ========================================================================== */
 
 export const SLOT_COLORS = ["default", "grey", "red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink"] as const;
+
 export const INDICATOR_COLORS = ["black", "white", "red", "orange", "yellow", "green", "cyan", "blue", "purple", "pink"] as const;
+
 export const ACTION_ICON_VARIANTS = ["black", "white", "disabled"] as const;
+
+export type SlotColor = (typeof SLOT_COLORS)[number];
+export type IndicatorColor = (typeof INDICATOR_COLORS)[number];
+export type ActionIconVariant = (typeof ACTION_ICON_VARIANTS)[number];
+export type { Color };
 
 export const GRAPHICS_PATH = "__fcore__/graphics/";
 export const png_slot_tileset = GRAPHICS_PATH + "slots.png";
@@ -12,8 +47,35 @@ export const png_frame_action_icons = GRAPHICS_PATH + "frame-action-icons.png";
 export const png_indicators = GRAPHICS_PATH + "indicators.png";
 export const png_dark_red_button = GRAPHICS_PATH + "dark-red-button.png";
 
-export function getDefaultStyles(): TypedGuiStyle | undefined {
-  return data.raw["gui-style"]["default"] as TypedGuiStyle | undefined;
+/* ========================================================================== */
+/*                       ELEMENT RUNTIME STYLE PROPERTIES                     */
+/* ========================================================================== */
+
+export type LuaStyleInternalKeys = "valid" | "get_style" | "gui" | "object_name" | "column_alignments";
+export type CleanStyle<T> = Partial<Omit<T, LuaStyleInternalKeys>>;
+export type BaseLuaStyle = CleanStyle<BaseStyle>;
+export type LuaStyles = BaseLuaStyle;
+
+export interface ElementStylesMap {
+  button: CleanStyle<ButtonStyle>;
+  "sprite-button": CleanStyle<ButtonStyle>;
+  label: CleanStyle<LabelStyle>;
+  table: CleanStyle<TableStyle>;
+  flow: CleanStyle<FlowStyle>;
+  frame: CleanStyle<FrameStyle>;
+  progressbar: CleanStyle<ProgressBarStyle>;
+  "scroll-pane": CleanStyle<ScrollPaneStyle>;
+  sprite: CleanStyle<ImageStyle>;
+}
+
+export type StylesFor<E extends string = string> = E extends keyof ElementStylesMap ? ElementStylesMap[E] : BaseLuaStyle;
+
+/* ========================================================================== */
+/*                             PROTOTYPE HELPERS                              */
+/* ========================================================================== */
+
+export function getDefaultStyles(): Record<string, any> | undefined {
+  return data.raw?.["gui-style"]?.["default"];
 }
 
 export function gen_slot(x: number, y: number, default_offset?: number): ButtonStyleSpecification {
@@ -150,3 +212,40 @@ export function gen_standalone_slot_button(x: number, y: number, default_offset?
     },
   };
 }
+
+/* ========================================================================== */
+/*                       PROTOTYPE STYLE MAPPINGS                             */
+/* ========================================================================== */
+
+export type ElementStyleMap = {
+  [K in GuiElementType]: {
+    button: ButtonStyles;
+    "sprite-button": ButtonStyles;
+    checkbox: CheckboxStyles;
+    radiobutton: CheckboxStyles;
+    flow: FlowStyles;
+    frame: FrameStyles;
+    label: LabelStyles;
+    line: LineStyles;
+    progressbar: ProgressbarStyles;
+    table: TableStyles;
+    textfield: TextboxStyles;
+    "text-box": TextboxStyles;
+    sprite: ImageStyles;
+    "scroll-pane": ScrollPaneStyles;
+    "drop-down": DropdownStyles;
+    "list-box": ListboxStyles;
+    camera: CameraStyles;
+    "choose-elem-button": ChooseElemButtonStyles;
+    slider: SliderStyles;
+    minimap: MinimapStyles;
+    "entity-preview": EntityPreviewStyles;
+    "empty-widget": EmptyWidgetStyles;
+    "tabbed-pane": TabbedPaneStyles;
+    tab: TabStyles;
+    switch: SwitchStyles;
+    inventory: InventoryStyles;
+  }[K];
+};
+
+export type StyleFor<E extends string = string> = E extends GuiElementType ? ElementStyleMap[E] | (string & {}) : string;

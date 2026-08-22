@@ -1,13 +1,11 @@
-﻿import type { ScrollPaneStyle as FactorioScrollPaneStyle } from "factorio:runtime";
-import type { CleanStyle } from "./_types";
 import { getDefaultStyles } from "./_common";
 
-export type ScrollPaneStyles = CleanStyle<FactorioScrollPaneStyle>;
-
-export type ReactScrollPaneStyleName =
-  "react_naked_scroll_pane" | "react_naked_scroll_pane_under_tabs" | "react_naked_scroll_pane_no_padding" | "react_shallow_scroll_pane" | "react_table_scroll_pane";
-
-export type VanillaScrollPaneStyleName =
+export type ScrollPaneStyles =
+  | "react_naked_scroll_pane"
+  | "react_naked_scroll_pane_under_tabs"
+  | "react_naked_scroll_pane_no_padding"
+  | "react_shallow_scroll_pane"
+  | "react_table_scroll_pane"
   | "scroll_pane"
   | "notice_scroll_pane"
   | "pins_scroll_pane"
@@ -48,13 +46,6 @@ export type VanillaScrollPaneStyleName =
   | "decider_combinator_outputs_scroll_pane"
   | "mappers_scroll_pane"
   | "bare_scroll_pane";
-
-/**
- * Extension interface for mods to register custom scroll pane styles.
- */
-export interface ModScrollPaneStyles {}
-
-export type ScrollPaneStyleName = ReactScrollPaneStyleName | VanillaScrollPaneStyleName | keyof ModScrollPaneStyles;
 
 const styles = getDefaultStyles();
 if (styles) {

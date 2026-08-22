@@ -1,15 +1,7 @@
-import type { ButtonStyle } from "factorio:runtime";
-import type { CleanStyle, SlotColor, Color } from "./_types";
+import type { SlotColor, Color } from "./_common";
 import { getDefaultStyles, gen_slot, gen_slot_button, gen_standalone_slot_button, png_dark_red_button } from "./_common";
 
-export type ButtonStyles = CleanStyle<ButtonStyle>;
-
-export type SlotPrefix = "react_slot_" | "react_selected_slot_" | "react_slot_button_" | "react_selected_slot_button_" | "react_standalone_slot_button_" | "react_selected_standalone_slot_button_";
-
-/** Matrix multiplication of 6 slot prefixes * 10 colors */
-export type ReactSlotStyleName = `${SlotPrefix}${SlotColor}`;
-
-export type ReactButtonStyleName =
+export type ButtonStyles =
   | `react_slot_button_${SlotColor}`
   | `react_selected_slot_button_${SlotColor}`
   | `react_standalone_slot_button_${SlotColor}`
@@ -19,9 +11,7 @@ export type ReactButtonStyleName =
   | "react_tool_button_light_green"
   | "react_tool_button_dark_red"
   | "react_invisible_button"
-  | "react_tab_button";
-
-export type VanillaButtonStyleName =
+  | "react_tab_button"
   | "button"
   | "confirm_button"
   | "confirm_button_without_tooltip"
@@ -31,12 +21,23 @@ export type VanillaButtonStyleName =
   | "red_back_button"
   | "red_button"
   | "green_button"
-  | "tool_button_red"
+  | "back_button"
+  | "forward_button"
+  | "slot_button"
+  | "slot_button_in_shallow_frame"
+  | "transparent_slot"
+  | "frame_action_button"
+  | "close_button"
+  | "action_button"
+  | "mini_button"
+  | "mini_button_aligned_to_text_vertically_when_centered"
+  | "mini_button_aligned_to_text_vertically_when_centered_with_extra_bottom_margin"
+  | "rounded_button"
+  | "rounded_button_without_padding"
   | "tool_button"
-  | "tool_button_without_padding"
+  | "tool_button_red"
   | "tool_button_green"
   | "tool_button_blue"
-  | "tool_button_flush_fluid"
   | "mini_button"
   | "mini_button_aligned_to_text_vertically"
   | "mini_button_aligned_to_text_vertically_when_centered"
@@ -153,19 +154,6 @@ export type VanillaButtonStyleName =
   | "cancel_button"
   | "rounded_button"
   | "side_menu_slot_button";
-
-/**
- * Extension interface for mods to register custom button styles.
- * @example
- * declare module "flib/styles" {
- *   interface ModButtonStyles {
- *     "my_custom_button": true;
- *   }
- * }
- */
-export interface ModButtonStyles {}
-
-export type ButtonStyleName = ReactButtonStyleName | VanillaButtonStyleName | keyof ModButtonStyles;
 
 const styles = getDefaultStyles();
 if (styles) {

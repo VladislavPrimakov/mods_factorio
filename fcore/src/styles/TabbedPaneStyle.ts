@@ -1,20 +1,15 @@
-﻿import type { TabbedPaneStyle as FactorioTabbedPaneStyle } from "factorio:runtime";
-import type { CleanStyle } from "./_types";
 import { getDefaultStyles } from "./_common";
 
-export type TabbedPaneStyles = CleanStyle<FactorioTabbedPaneStyle>;
-
-export type ReactTabbedPaneStyleName = "react_tabbed_pane" | "react_tabbed_pane_with_no_padding";
-
-export type VanillaTabbedPaneStyleName =
-  "tabbed_pane" | "tabbed_pane_frame" | "filter_tabbed_pane" | "frame_tabbed_pane" | "quick_panel_tabbed_pane" | "tabbed_pane_with_no_side_padding" | "tabbed_pane_with_extra_padding";
-
-/**
- * Extension interface for mods to register custom tabbed pane styles.
- */
-export interface ModTabbedPaneStyles {}
-
-export type TabbedPaneStyleName = ReactTabbedPaneStyleName | VanillaTabbedPaneStyleName | keyof ModTabbedPaneStyles;
+export type TabbedPaneStyles =
+  | "react_tabbed_pane"
+  | "react_tabbed_pane_with_no_padding"
+  | "tabbed_pane"
+  | "tabbed_pane_frame"
+  | "filter_tabbed_pane"
+  | "frame_tabbed_pane"
+  | "quick_panel_tabbed_pane"
+  | "tabbed_pane_with_no_side_padding"
+  | "tabbed_pane_with_extra_padding";
 
 const styles = getDefaultStyles();
 if (styles) {

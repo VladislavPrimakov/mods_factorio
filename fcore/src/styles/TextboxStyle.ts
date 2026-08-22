@@ -1,12 +1,9 @@
-﻿import type { TextBoxStyle as FactorioTextBoxStyle } from "factorio:runtime";
-import type { CleanStyle } from "./_types";
 import { getDefaultStyles } from "./_common";
 
-export type TextboxStyles = CleanStyle<FactorioTextBoxStyle>;
-
-export type ReactTextboxStyleName = "react_widthless_textfield" | "react_widthless_invalid_textfield" | "react_titlebar_search_textfield";
-
-export type VanillaTextboxStyleName =
+export type TextboxStyles =
+  | "react_widthless_textfield"
+  | "react_widthless_invalid_textfield"
+  | "react_titlebar_search_textfield"
   | "textbox"
   | "textfield"
   | "changelog_textbox"
@@ -31,13 +28,6 @@ export type VanillaTextboxStyleName =
   | "editor_lua_textbox"
   | "edit_blueprint_description_textbox"
   | "search_textfield";
-
-/**
- * Extension interface for mods to register custom textbox styles.
- */
-export interface ModTextboxStyles {}
-
-export type TextboxStyleName = ReactTextboxStyleName | VanillaTextboxStyleName | keyof ModTextboxStyles;
 
 const styles = getDefaultStyles();
 if (styles) {

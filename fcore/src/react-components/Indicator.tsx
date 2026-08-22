@@ -1,5 +1,5 @@
-﻿import { createElement } from "../react";
-import type { IndicatorColor } from "../styles/_types";
+import { createElement } from "../react";
+import type { IndicatorColor } from "../styles";
 import type { IndicatorSpriteName } from "../styles/ImageStyle";
 import { Sprite, type SpriteProps } from "./Sprite";
 

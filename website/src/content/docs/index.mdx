@@ -7,15 +7,15 @@ hero:
     file: ../../assets/logo.svg
   actions:
     - text: "Architectural Patterns"
-      link: /patterns/react/
+      link: /mods_factorio/patterns/react/
       icon: right-arrow
       variant: primary
     - text: "Cybersyn2 Constant Combinator"
-      link: /cybersyn2-combinator/
+      link: /mods_factorio/cybersyn2-combinator/
       icon: document
       variant: secondary
     - text: "API Reference"
-      link: /api/
+      link: /mods_factorio/api/
       icon: open-book
       variant: minimal
 ---
@@ -243,3 +243,61 @@ end)
     Encode and decode Factorio 2.0 composite signal keys (`item:iron-plate:legendary`) with $O(1)$ lookup and serialization helpers.
   </Card>
 </CardGrid>
+
+---
+
+## 🛠 TSTL Best Practices for Factorio Lua
+
+When compiling TypeScript to Factorio Lua using TSTL (TypeScript-To-Lua), follow these core rules to ensure optimal VM performance and prevent runtime desyncs:
+
+### 1. Explicit `(this: void)` on Callbacks
+In TypeScript, callback types without context annotations generate an implicit `self` parameter (`function(____, a, b)`). When invoked by the Factorio engine, arguments shift by 1 position. Always declare callbacks with `(this: void, ...)`:
+
+```ts
+// ❌ Anti-pattern: Implicit self shifts event arguments in Lua
+type ClickHandler = (e: OnGuiClickEvent) => void;
+
+// ✅ Best Practice: Guarantees direct Lua function signature
+type ClickHandler = (this: void, e: OnGuiClickEvent) => void;
+```
+
+### 2. Never Use JavaScript Global Constructors
+In Lua 5.2 VM, `String`, `Number`, and `Boolean` globals are `nil`. Calling them causes an immediate runtime crash (`attempt to call global 'String' (a nil value)`):
+
+```ts
+// ❌ Anti-pattern: Crashes in Lua VM
+const keyStr = String(item.key);
+const countNum = Number(textValue);
+const isValid = Boolean(flags && flags.enabled);
+
+// ✅ Best Practice: Use native Lua functions and boolean expressions
+const keyStr = tostring(item.key);
+const countNum = tonumber(textValue);
+const isValid = flags !== undefined && flags.enabled === true;
+```
+
+### 3. Deleting Table Keys (`obj[key] = undefined`)
+In TSTL, `delete obj[key]` generates the `__TS__Delete` polyfill helper. Assigning `undefined` compiles to a single native Lua opcode instruction (`obj[key] = nil`):
+
+```ts
+// ❌ Generates __TS__Delete polyfill:
+delete storage.activeWindows[playerIndex];
+
+// ✅ Compiles directly to storage.activeWindows[playerIndex] = nil:
+storage.activeWindows[playerIndex] = undefined;
+```
+
+### 4. Table and Array Iteration
+Standard `Object.keys()` or `Object.entries()` allocate intermediate JavaScript array polyfills. In Factorio Lua, use native `pairs()` and `for..of` for maximum speed:
+
+```ts
+// Array iteration (compiles to native ipairs):
+for (const item of items) {
+  processItem(item);
+}
+
+// Record/Table iteration (compiles to native pairs):
+for (const [key, value] of pairs(dictionary)) {
+  processEntry(key, value);
+}
+```

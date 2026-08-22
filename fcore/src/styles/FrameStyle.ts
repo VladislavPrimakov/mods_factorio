@@ -1,11 +1,7 @@
-﻿import type { FrameStyle as FactorioFrameStyle } from "factorio:runtime";
 import type { ElementImageSetStruct } from "factorio:prototype";
-import type { CleanStyle } from "./_types";
 import { getDefaultStyles } from "./_common";
 
-export type FrameStyles = CleanStyle<FactorioFrameStyle>;
-
-export type ReactFrameStyleName =
+export type FrameStyles =
   | "react_shallow_frame_in_shallow_frame"
   | "react_deep_frame_in_shallow_frame_stretchable"
   | "react_raised_frame"
@@ -14,25 +10,22 @@ export type ReactFrameStyleName =
   | "react_frame_slot_buttons_shallow"
   | "react_table_row_frame"
   | "react_table_row_frame_top"
-  | "react_table_row_frame_selected";
-
-export type VanillaFrameStyleName =
+  | "react_table_row_frame_selected"
   | "frame"
   | "universe_frame"
   | "non_draggable_frame"
   | "invisible_frame"
   | "frame_with_even_paddings"
-  | "no_header_filler_frame"
-  | "map_details_frame"
+  | "naked_frame"
+  | "outer_frame_without_shadow"
+  | "inside_shallow_frame"
+  | "shallow_frame_with_light_frame"
   | "bordered_frame"
+  | "dark_frame"
+  | "deep_frame"
+  | "inside_shallow_frame_with_padding"
   | "inside_deep_frame"
   | "inside_deep_frame_for_tabs"
-  | "tab_deep_frame_in_entity_frame"
-  | "deep_frame_in_shallow_frame_for_description"
-  | "deep_frame_in_shallow_frame_for_description_with_fixed_width"
-  | "inside_shallow_frame"
-  | "shallow_frame_in_shallow_frame"
-  | "inside_shallow_frame_with_padding"
   | "inside_shallow_frame_with_padding_and_vertical_spacing"
   | "deep_frame"
   | "deep_frame_in_shallow_frame"
@@ -135,19 +128,6 @@ export type VanillaFrameStyleName =
   | "train_schedule_partially_fullfilled_condition_frame"
   | "dialog_frame"
   | "flat_frame";
-
-/**
- * Extension interface for mods to register custom frame styles.
- * @example
- * declare module "flib/styles" {
- *   interface ModFrameStyles {
- *     "my_custom_frame": true;
- *   }
- * }
- */
-export interface ModFrameStyles {}
-
-export type FrameStyleName = ReactFrameStyleName | VanillaFrameStyleName | keyof ModFrameStyles;
 
 const styles = getDefaultStyles();
 if (styles) {

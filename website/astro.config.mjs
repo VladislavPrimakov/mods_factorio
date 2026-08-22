@@ -84,7 +84,7 @@ export default defineConfig({
         {
           label: 'Cybersyn2 Combinator',
           items: [
-            { label: 'Overview & Manual', link: '/cybersyn2-combinator/' },
+            { label: 'Overview', link: '/cybersyn2-combinator/' },
           ],
         },
         {
